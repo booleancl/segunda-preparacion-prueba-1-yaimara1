@@ -1,0 +1,52 @@
+#!/bin/bash
+
+debug_check_directories() {
+  echo "**********************************************"
+  echo "🔎 👀 Revisión Automática  👀 🔎               "
+  echo "**********************************************"
+  echo "tu estructura de carpetas es:"
+  tree --noreport distribuidora/clientes
+  echo "**********************************************"
+  echo "la estructura que debemos hacer es:"
+  echo "distribuidora/clientes
+├── quinta-region
+│   └── lista.xls
+├── santiago
+│   ├── la-pintana
+│   │   └── lista.xls
+│   ├── maipu
+│   │   └── lista.xls
+│   ├── puente-alto
+│   │   └── lista.xls
+│   └── renca
+│       └── lista.xls
+└── sexta-region
+    └── lista.xls"
+  echo "**********************************************"
+}
+
+test_check_directories() {
+  ./comandos1
+
+  debug_check_directories
+
+  actual_tree=$(tree -i --noreport distribuidora/clientes)
+  expected="distribuidora/clientes
+quinta-region
+lista.xls
+santiago
+la-pintana
+lista.xls
+maipu
+lista.xls
+puente-alto
+lista.xls
+renca
+lista.xls
+sexta-region
+lista.xls"
+
+  assertEquals "ERROR" "$actual_tree" "$expected" 
+}
+
+. shunit2

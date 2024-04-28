@@ -1,0 +1,5 @@
+#!/bin/bash -e
+
+# Eliminar la carpeta "externos" dentro de la carpeta distribuidora
+cd distribuidora
+

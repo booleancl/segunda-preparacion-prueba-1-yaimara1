@@ -1,0 +1,11 @@
+#!/bin/bash
+set -e
+
+# Install shunit2
+shunit_path="/usr/bin/shunit2"
+shunit_source_url="https://raw.githubusercontent.com/kward/shunit2/master/shunit2"
+
+sudo curl -sLo $shunit_path $shunit_source_url
+sudo chmod +x $shunit_path
+
+sudo apt install tree

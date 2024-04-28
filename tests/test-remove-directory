@@ -1,0 +1,10 @@
+#!/bin/bash
+
+test_check_removed_folder() {
+  ./comandos2
+
+  assertTrue '[ ! -d "distribuidora/externos" ]'
+}
+
+
+. shunit2
